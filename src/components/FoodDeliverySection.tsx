@@ -1,21 +1,51 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import pizzaImg from "@/assets/pizza.jpg";
+import burgerImg from "@/assets/burger.jpg";
+import drinksImg from "@/assets/drinks.jpg";
 
 const foodItems = [
   {
     title: "Fast Food",
     icon: "🍔",
-    description: "Burgers, pizza, and quick meals"
+    description: "Burgers, fries, and quick meals",
+    price: "$8.99",
+    image: burgerImg
   },
   {
     title: "Drinks & Snacks",
     icon: "🥤",
-    description: "Beverages, chips, and light bites"
+    description: "Beverages, chips, and light bites",
+    price: "$3.49",
+    image: drinksImg
   },
   {
-    title: "Instant Delivery",
-    icon: "⚡",
-    description: "Ready-to-eat meals in minutes"
+    title: "Pizza",
+    icon: "🍕",
+    description: "Hot, fresh pizza delivered fast",
+    price: "$12.99",
+    image: pizzaImg
+  },
+  {
+    title: "Local Cuisine",
+    icon: "🍽️",
+    description: "Traditional dishes from local restaurants",
+    price: "$15.99",
+    image: burgerImg
+  },
+  {
+    title: "Desserts",
+    icon: "🍰",
+    description: "Cakes, ice cream, and sweet treats",
+    price: "$5.99",
+    image: pizzaImg
+  },
+  {
+    title: "Healthy Options",
+    icon: "🥗",
+    description: "Salads, smoothies, and nutritious meals",
+    price: "$9.99",
+    image: drinksImg
   }
 ];
 
@@ -32,23 +62,26 @@ const FoodDeliverySection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {foodItems.map((item, index) => (
             <Card 
               key={item.title} 
               className="group hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer border-2 hover:border-accent bg-card"
             >
-              <CardContent className="p-8 text-center">
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-foreground">
+              <CardContent className="p-6 text-center">
+                <img 
+                  src={item.image} 
+                  alt={item.title}
+                  className="w-full h-40 object-cover rounded-md mb-4"
+                />
+                <h3 className="text-xl font-semibold mb-2 text-foreground">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-2">
                   {item.description}
                 </p>
-                <Button variant="hero" size="lg" className="w-full">
+                <p className="text-2xl font-bold text-primary mb-4">{item.price}</p>
+                <Button variant="cta" size="sm" className="w-full">
                   Order Now
                 </Button>
               </CardContent>

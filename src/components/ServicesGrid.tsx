@@ -78,7 +78,7 @@ const ServicesGrid = () => {
                 <p className="text-muted-foreground mb-4">
                   {service.description}
                 </p>
-                <Button variant="outline" size="sm" className="w-full">
+                <Button variant="danger" size="sm" className="w-full">
                   Request Now
                 </Button>
               </CardContent>
